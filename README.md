@@ -24,7 +24,12 @@ The setup for the archive node is **not included** in this docker setup.
 
 The minimum configuration should to be the CPX51 VPS at Hetzner. Feel free to sign up using our [referral link](https://hetzner.cloud/?ref=x2opTk2fg2fM) -- you can save 20€ and we get 10€ bonus for setting up some testnet nodes to support the network growth. :)
 
+## Setup
 
+1. Checkout repo
+2. Set Authentication Token for Subgraph Deployments @ nginx-proxy/authentication.conf
+3. Set Polygon RPC Endpoint in start script
+4. Run ```bash start``` 
 
 ## Table of contents
 
