@@ -1,0 +1,182 @@
+version: '3'
+
+services:
+  graph-node:
+    image: graphprotocol/graph-node:v0.26.0
+    expose:
+      - 8020
+    ports:
+      - '8000:8000'
+      - '8001:8001'
+      - '8030:8030'
+      - '8040:8040'
+    depends_on:
+      - postgres
+    environment:
+      postgres_host: postgres
+      postgres_user: graph-node
+      postgres_pass: let-me-in
+      postgres_db: graph-node
+      ipfs: 'https://ipfs.network.thegraph.com'
+      GRAPH_MAX_GAS_PER_HANDLER: 9999999999999999
+      ethereum: 'matic:http://172.17.0.1:8545' # Docker Gateway 
+        #ethereum: 'matic:https://polygon-mainnet.infura.io/v3/808f937e053a4c9686997a0d7430aa08' # Backup
+      GRAPH_LOG: info
+  postgres:
+    image: postgres
+    expose:
+      - 5432
+    command:
+      [
+        "postgres",
+        "-cshared_preload_libraries=pg_stat_statements"
+      ]
+    environment:
+      POSTGRES_USER: graph-node
+      POSTGRES_PASSWORD: let-me-in
+      POSTGRES_DB: graph-node
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  ######################################################################################
+  #####################          PROMETHEUS CONTAINER            #######################
+  ######################################################################################
+
+  prometheus:
+    image: prom/prometheus:v2.29.1
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - ./prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    expose:
+      - 9090
+    labels:
+      org.label-schema.group: "monitoring"
+
+  ######################################################################################
+  #####################          ALERT MANAGER CONTAINER         #######################
+  ######################################################################################
+
+
+
+  alertmanager:
+    image: prom/alertmanager:v0.23.0
+    container_name: alertmanager
+    volumes:
+      - ./alertmanager:/etc/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
+    restart: unless-stopped
+    expose:
+      - 9093
+    labels:
+      org.label-schema.group: "monitoring"
+
+  ######################################################################################
+  #####################         NODE EXPORTER CONTAINER          #######################
+  ######################################################################################
+
+
+
+  nodeexporter:
+    image: prom/node-exporter:v1.2.2
+    container_name: nodeexporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    expose:
+      - 9100
+    labels:
+      org.label-schema.group: "monitoring"
+
+  ######################################################################################
+  #####################             CADVISOR CONTAINER           #######################
+  ######################################################################################
+
+
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.40.0
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
+    restart: unless-stopped
+    expose:
+      - 8080
+    labels:
+      org.label-schema.group: "monitoring"
+
+  ######################################################################################
+  #####################           GRAFANA CONTAINER              #######################
+  ######################################################################################
+
+
+
+  grafana:
+    image: grafana/grafana:8.0.6
+    container_name: grafana
+    volumes:
+      - ./grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_ADMIN_PASS:-Secr3tSausageP4$$word}!
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SECURITY_DISABLE_BRUTE_FORCE_LOGIN_PROTECTION=true
+      - postgres_host=postgres
+      - postgres_user=graph-node
+      - postgres_pass=let-me-in
+      - postgres_db=graph-node
+      - GF_INSTALL_PLUGINS=fifemon-graphql-datasource
+      - subgraph_endpoint=${SUBGRAPH_ENDPOINT:-https://gateway.thegraph.com/network}
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    labels:
+      org.label-schema.group: "monitoring"
+
+  ######################################################################################
+  #####################          PUSHGATEWAY CONTAINER           #######################
+  ######################################################################################
+
+  pushgateway:
+    image: prom/pushgateway:v1.4.1
+    container_name: pushgateway
+    restart: unless-stopped
+    expose:
+      - 9091
+    labels:
+      org.label-schema.group: "monitoring"
+
+
+  ######################################################################################
+  #####################             GRAPH NODE AUTH              #######################
+  ######################################################################################
+  graph-node-auth:
+    image: nginx:alpine
+    depends_on:
+      - graph-node
+    ports:
+      - '8020:8020'
+    volumes:
+      - ./nginx-proxy/nginx-auth.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx-proxy/authentication.conf:/etc/nginx/conf.d/authentication.conf:ro

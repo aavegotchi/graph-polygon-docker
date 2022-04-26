@@ -1,0 +1,14 @@
+datasources:
+  - access: proxy
+    editable: true
+    name: postgres
+    orgId: 1
+    type: postgres
+    url: $postgres_host
+    user: $postgres_user
+    database: $postgres_db
+    secureJsonData:
+      password: $postgres_pass
+    jsonData:
+      sslmode: disable
+      postgresVersion: 906
