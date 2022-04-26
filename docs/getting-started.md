@@ -1,14 +1,14 @@
 #### Table of contents
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md)
-- [Pre-requisites](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/pre-requisites.md)
-- [Getting Started](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/getting-started.md) <- you are here
-- [Advanced Configuration](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/advanced-config.md)
-- [Setting Up Allocations](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/allocations.md)
-- [Setting Up Cost Models](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/costmodels.md)
-- [Viewing Logs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/logs.md)
-- [Tips and Tricks](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/tips.md)
-- [Troubleshooting](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/troubleshooting.md)
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md)
+- [Pre-requisites](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/pre-requisites.md)
+- [Getting Started](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/getting-started.md) <- you are here
+- [Advanced Configuration](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/advanced-config.md)
+- [Setting Up Allocations](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/allocations.md)
+- [Setting Up Cost Models](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/costmodels.md)
+- [Viewing Logs](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/logs.md)
+- [Tips and Tricks](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/tips.md)
+- [Troubleshooting](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/troubleshooting.md)
 
 
 
@@ -160,7 +160,7 @@ Containers:
 **Additional configs and details:**
 
 - Agent/Service - [networks.md](https://github.com/graphprotocol/indexer/blob/main/docs/networks.md)
-- Graph-Node - [environment-variables.md](https://github.com/graphprotocol/graph-node/blob/master/docs/environment-variables.md)
+- Graph-Node - [environment-variables.md](https://github.com/graphprotocol/graph-node/blob/main/docs/environment-variables.md)
 
 
 
@@ -173,7 +173,7 @@ the CLI flags and environment variables that can be used to change the ports.
 
 #### Graphical Overview
 
-![](https://raw.githubusercontent.com/graphprotocol/mission-control-indexer/master/files/ports.png)
+![](https://raw.githubusercontent.com/graphprotocol/mission-control-indexer/main/files/ports.png)
 
 #### Graph Node
 
@@ -288,12 +288,12 @@ To use qlog or agora execute the `runqlog` or `runagora` scripts in the root of 
 
 #### Table of contents
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md)
-- [Pre-requisites](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/pre-requisites.md)
-- [Getting Started](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/getting-started.md) <- you are here
-- [Advanced Configuration](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/advanced-config.md)
-- [Setting Up Allocations](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/allocations.md)
-- [Setting Up Cost Models](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/costmodels.md)
-- [Viewing Logs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/logs.md)
-- [Tips and Tricks](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/tips.md)
-- [Troubleshooting](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/troubleshooting.md)
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md)
+- [Pre-requisites](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/pre-requisites.md)
+- [Getting Started](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/getting-started.md) <- you are here
+- [Advanced Configuration](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/advanced-config.md)
+- [Setting Up Allocations](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/allocations.md)
+- [Setting Up Cost Models](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/costmodels.md)
+- [Viewing Logs](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/logs.md)
+- [Tips and Tricks](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/tips.md)
+- [Troubleshooting](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/troubleshooting.md)

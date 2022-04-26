@@ -1,42 +1,38 @@
 #### Table of contents
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md)
-- [Pre-requisites](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/pre-requisites.md) <- you are here
-- [Getting Started](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/getting-started.md)
-- [Advanced Configuration](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/advanced-config.md)
-- [Setting Up Allocations](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/allocations.md)
-- [Setting Up Cost Models](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/costmodels.md)
-- [Viewing Logs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/logs.md)
-- [Tips and Tricks](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/tips.md)
-- [Troubleshooting](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/troubleshooting.md)
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md)
+- [Pre-requisites](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/pre-requisites.md) <- you are here
+- [Getting Started](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/getting-started.md)
+- [Advanced Configuration](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/advanced-config.md)
+- [Setting Up Allocations](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/allocations.md)
+- [Setting Up Cost Models](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/costmodels.md)
+- [Viewing Logs](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/logs.md)
+- [Tips and Tricks](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/tips.md)
+- [Troubleshooting](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/troubleshooting.md)
 
 
 
-## Ethereum Archive Node Specs
+## Polygon Archive Node Specs
 
-Again, as mentioned in the [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md), the setup for the archive node is **not included** in this docker setup.
+Again, as mentioned in the [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md), the setup for the archive node is **not included** in this docker setup.
 
 This section is purely informative.
 
-|         | Minimum Specs   | Recommended Specs | Maxed out Specs   |
-| ------- | --------------- | ----------------- | ----------------- |
-| CPUs    | 16 vcore        | 32 vcore          | 64 vcore          |
-| RAM     | 32 GB           | 64 GB             | 128 GB            |
-| Storage | 1.5 TB SATA SSD | 8 TB NVME         | 8 TB NVME RAID 10 |
+|         | Minimum Specs   | Recommended Specs | Maxed out Specs    |
+| ------- | --------------- | ----------------- | ------------------ |
+| CPUs    | 16 vcore        | 32 vcore          | 64 vcore           |
+| RAM     | 32 GB           | 64 GB             | 128 GB             |
+| Storage | 16 TB SATA SSD  | 16 TB NVME        | 20 TB NVME RAID 10 |
 
-*Note: The 1.5 TB requirement for storage is the absolute minimum, it needs to be at least SATA SSD as it doesn't work with spinning disks. Also, only Erigon has that little space required. OE, Parity and GETH all take 7 TB+ at the very minimum, and expanding pretty fast.*
+*Note: The 16 TB requirement for storage is the absolute minimum, it needs to be at least SATA SSD as it doesn't work with spinning disks. Also, only Erigon / TurboBor has that little space required. Bor takes 15 TB+ at the very minimum, and expanding pretty fast.*
 
 
 ### Archive node options
 
-| Self-hosted        | Trace API | Stable | EIP-1898 | Min Disk Size |
-| ------------------ | --------- | ------ | -------- | ------------- |
-| OpenEthereum 3.0.x | yes ✔️     | no ⚠️   | yes ✔️    | 8 TB          |
-| OpenEthereum 3.1   | yes ✔️     | no ⚠️   | no ⚠️     | 8 TB          |
-| OpenEthereum 3.2   | yes ✔️     | yes ✔️  | yes ✔️    | 8 TB          |
-| Parity 2.5.13      | yes ✔️     | yes ✔️  | no ⚠️     | 8 TB          |
-| GETH               | no ⚠️      | yes ✔️  | yes ✔️    | 8 TB          |
-| Erigon             | yes ✔️     | yes ✔️  | yes ✔️    | 1.5 TB        |
+| Self-hosted        | Trace API | Stable |  Min Disk Size |
+| ------------------ | --------- | ------ |  ------------- |
+| GETH               | no ⚠️      | yes ✔️  | 16 TB          |
+| Erigon             | yes ✔️     | no ⚠️   | 8  TB          |
 
 
 | Service Providers (WIP) |
@@ -92,12 +88,12 @@ npm install -g pino-pretty
 
 #### Table of contents
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md)
-- [Pre-requisites](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/pre-requisites.md) <- you are here
-- [Getting Started](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/getting-started.md)
-- [Advanced Configuration](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/advanced-config.md)
-- [Setting Up Allocations](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/allocations.md)
-- [Setting Up Cost Models](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/costmodels.md)
-- [Viewing Logs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/logs.md)
-- [Tips and Tricks](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/tips.md)
-- [Troubleshooting](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/troubleshooting.md)
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md)
+- [Pre-requisites](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/pre-requisites.md) <- you are here
+- [Getting Started](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/getting-started.md)
+- [Advanced Configuration](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/advanced-config.md)
+- [Setting Up Allocations](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/allocations.md)
+- [Setting Up Cost Models](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/costmodels.md)
+- [Viewing Logs](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/logs.md)
+- [Tips and Tricks](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/tips.md)
+- [Troubleshooting](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/troubleshooting.md)

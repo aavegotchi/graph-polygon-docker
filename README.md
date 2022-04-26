@@ -18,11 +18,9 @@ For those that consider running their infras like we did, here are our observati
 
 The best part of using Docker is that the data is stored in named volumes on the docker host and can be exported / copied over to a bigger machine once more performance is needed.
 
-Note that you **need** access to an **Ethereum Archive Node that supports EIP-1898**.
+Note that you **need** access to an **Polygon Archive Node**.
 
 The setup for the archive node is **not included** in this docker setup.
-
-The minimum configuration should to be the CPX51 VPS at Hetzner. Feel free to sign up using our [referral link](https://hetzner.cloud/?ref=x2opTk2fg2fM) -- you can save 20€ and we get 10€ bonus for setting up some testnet nodes to support the network growth. :)
 
 ## Happy path:
 
@@ -40,7 +38,7 @@ The minimum configuration should to be the CPX51 VPS at Hetzner. Feel free to si
 ## Table of contents
 
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md) <- you are here
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md) <- you are here
 - [Pre-requisites](docs/pre-requisites.md)
 - [Getting Started](docs/getting-started.md)
 - [Advanced Configuration](docs/advanced-config.md)

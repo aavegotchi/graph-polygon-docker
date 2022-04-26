@@ -1,14 +1,14 @@
 #### Table of contents
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md)
-- [Pre-requisites](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/pre-requisites.md)
-- [Getting Started](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/getting-started.md)
-- [Advanced Configuration](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/advanced-config.md) <- you are here
-- [Setting Up Allocations](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/allocations.md)
-- [Setting Up Cost Models](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/costmodels.md)
-- [Viewing Logs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/logs.md)
-- [Tips and Tricks](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/tips.md)
-- [Troubleshooting](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/troubleshooting.md)
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md)
+- [Pre-requisites](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/pre-requisites.md)
+- [Getting Started](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/getting-started.md)
+- [Advanced Configuration](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/advanced-config.md) <- you are here
+- [Setting Up Allocations](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/allocations.md)
+- [Setting Up Cost Models](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/costmodels.md)
+- [Viewing Logs](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/logs.md)
+- [Tips and Tricks](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/tips.md)
+- [Troubleshooting](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/troubleshooting.md)
 
 
 
@@ -28,7 +28,7 @@
 
 
 
-In the [build-postgres](https://github.com/StakeSquid/graphprotocol-mainnet-docker/tree/master/build-postgres) folder you'll see a bunch of scripts. We highly recommend reading them to understand what they're all doing, first of all, then proceed with the installation.
+In the [build-postgres](https://github.com/aavegotchi/graph-polygon-docker/tree/main/build-postgres) folder you'll see a bunch of scripts. We highly recommend reading them to understand what they're all doing, first of all, then proceed with the installation.
 
 
 
@@ -78,13 +78,13 @@ Note that your postgres will automatically come back up on system startup. It wi
 
 ## Advanced Graph Node configuration
 
-In the [graph-node-configs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/tree/graph-node-configs) folder you can see a few configuration files specific to each graph-node you are running (by default, two index nodes and one query node).
+In the [graph-node-configs](https://github.com/aavegotchi/graph-polygon-docker/tree/graph-node-configs) folder you can see a few configuration files specific to each graph-node you are running (by default, two index nodes and one query node).
 
 The configs are basic, and work by default just like before. They're loaded as volumes in `/root/graph-node-configs/` inside the Graph Node containers, and passed as flags `GRAPH_NODE_CONFIG=` in the compose file under each Graph Node component.
 
-Configuring your Graph Nodes this way allows you to do a lot more than through having simple flags in the startup of your nodes. For example, this enables you to be able to spin up database shards, organize your subgraph according to your needs and also enables the use of `graphman`, a very powerful utility that everyone should master.
+Configuring your Graph Nodes this way allows you to do a lot more than through having simple flags in the startup of your nodes. For example, this enables you to be able to spin up database shards, organize your subgraph according to your needs and also enables the use of `graphman`, a very powerful utility that everyone should main.
 
-The following section was taken from the Graph Node [config.md](https://github.com/graphprotocol/graph-node/blob/master/docs/config.md) written by the team. Although we will try to keep this section up to date, it might lag behind the changes in the main repo, so please refer to the original guide to see if there are any breaking changes.
+The following section was taken from the Graph Node [config.md](https://github.com/graphprotocol/graph-node/blob/main/docs/config.md) written by the team. Although we will try to keep this section up to date, it might lag behind the changes in the main repo, so please refer to the original guide to see if there are any breaking changes.
 
 **This feature is considered experimental. In particular, the format of the configuration file might still change in backwards-incompatible ways**
 
@@ -469,7 +469,7 @@ This script also supports Docker Swarm mode.
 Download `ufw-docker` script
 
     sudo wget -O /usr/local/bin/ufw-docker \
-      https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
+      https://github.com/chaifeng/ufw-docker/raw/main/ufw-docker
     sudo chmod +x /usr/local/bin/ufw-docker
 
 Then using the following command to modify the `after.rules` file of `ufw`
@@ -547,13 +547,13 @@ Remove rules from all nodes related to the service `web`
 
 We use [Vagrant](https://www.vagrantup.com/) to set up a local testing environment.
 
-Run the following command to create 1 master node and 2 worker nodes
+Run the following command to create 1 main node and 2 worker nodes
 
     vagrant up
 
-Log into the master node
+Log into the main node
 
-    vagrant ssh master
+    vagrant ssh main
 
 After logging in, create a `web` service
 
@@ -563,7 +563,7 @@ We shouldn't visit this `web` service from our host
 
     curl -v http://192.168.56.131:8080
 
-On the master node, run the command to allow the public access port `80` of the `web` service.
+On the main node, run the command to allow the public access port `80` of the `web` service.
 
     sudo ufw-docker service allow web 80
 
@@ -584,12 +584,12 @@ We can access the `web` service from our host now
 
 #### Table of contents
 
-- [README.md](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/README.md)
-- [Pre-requisites](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/pre-requisites.md)
-- [Getting Started](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/getting-started.md)
-- [Advanced Configuration](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/advanced-config.md) <- you are here
-- [Setting Up Allocations](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/allocations.md)
-- [Setting Up Cost Models](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/costmodels.md)
-- [Viewing Logs](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/logs.md)
-- [Tips and Tricks](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/tips.md)
-- [Troubleshooting](https://github.com/StakeSquid/graphprotocol-mainnet-docker/blob/master/docs/troubleshooting.md)
+- [README.md](https://github.com/aavegotchi/graph-polygon-docker/blob/main/README.md)
+- [Pre-requisites](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/pre-requisites.md)
+- [Getting Started](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/getting-started.md)
+- [Advanced Configuration](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/advanced-config.md) <- you are here
+- [Setting Up Allocations](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/allocations.md)
+- [Setting Up Cost Models](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/costmodels.md)
+- [Viewing Logs](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/logs.md)
+- [Tips and Tricks](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/tips.md)
+- [Troubleshooting](https://github.com/aavegotchi/graph-polygon-docker/blob/main/docs/troubleshooting.md)
