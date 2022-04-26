@@ -1,4 +1,5 @@
 EMAIL=email@domain.com \
+INDEX_HOST=index.sld.tld \
 ADMIN_USER=admin \
 ADMIN_PASSWORD=admin \
 DB_USER=db_user \

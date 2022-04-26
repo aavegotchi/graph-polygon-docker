@@ -24,12 +24,18 @@ The setup for the archive node is **not included** in this docker setup.
 
 The minimum configuration should to be the CPX51 VPS at Hetzner. Feel free to sign up using our [referral link](https://hetzner.cloud/?ref=x2opTk2fg2fM) -- you can save 20€ and we get 10€ bonus for setting up some testnet nodes to support the network growth. :)
 
-## Setup
+## Happy path:
 
 1. Checkout repo
 2. Set Authentication Token for Subgraph Deployments @ nginx-proxy/authentication.conf
-3. Set Polygon RPC Endpoint in start script
-4. Run ```bash start``` 
+3. Set Polygon Archive Node RPC Endpoint in start script
+4. Set Domain and Email in start script
+5. Run ```bash start``` 
+6. Create Subgraph: ```http post localhost:8020 "Authorization: Bearer <TOKEN>" jsonrpc="2.0" id="1" method="subgraph_create" params:='{"name": "aavegotchi/aavegotchi-core-matic"}'``` 
+7. Fetch latest Subgraph ID from https://thegraph.com/hosted-service/subgraph/aavegotchi/aavegotchi-core-matic
+8. Deploy Subgraph: ```http post localhost:8020 "Authorization: Bearer <TOKEN>" jsonrpc="2.0" id="1" method="subgraph_deploy" params:='{"name": "aavegotchi/aavegotchi-core-matic", "ipfs_hash": "QmQBbMsur9ikzpBfimyPe91fTm9zYC3FJefEjtjeAHV8FT"}'```  
+9. Take a look @ Grafana http://localhost:3000/
+10. Run GraphQL Queries @ http://localhost:8000/subgraphs/name/aavegotchi/aavegotchi-core-matic
 
 ## Table of contents
 
